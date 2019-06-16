@@ -7,7 +7,7 @@ from collections import defaultdict
 
 last_months = 12
 sleep_seconds = 0.02
-traders_number = 10
+traders_number = 500
 
 
 def get_all_traders():
@@ -61,4 +61,5 @@ def write_data_to_file(traders_ids, filename):
 traders = get_all_traders()
 traders_ids = ids_of_traders(traders)
 
-write_data_to_file(traders_ids, "data/data.txt")
+print(traders_ids)
+# write_data_to_file(traders_ids, "data/data.txt")
