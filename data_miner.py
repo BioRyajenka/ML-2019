@@ -7,7 +7,7 @@ from collections import defaultdict
 
 last_months = 12
 sleep_seconds = 0.02
-traders_number = 500
+traders_number = 100
 
 
 def get_all_traders():
@@ -24,7 +24,6 @@ def ids_of_traders(traders):
 
 def get_trader_hourly_monitoring(id):
     ret = []
-    print(f'Getting data for trader with id={id}')
 
     for r in range(last_months):
         params = {
@@ -41,8 +40,8 @@ def get_trader_hourly_monitoring(id):
 def write_data_to_file(traders_ids, filename):
     time_data = defaultdict(lambda: {})
 
-    for trader_id in traders_ids:
-        print(get_trader_hourly_monitoring(trader_id))
+    for idx, trader_id in enumerate(traders_ids):
+        print(f'{idx + 1} trader of {len(traders_ids)}, id={trader_id}')
         for dtime, \
                 return_open, return_high, return_low, return_close, \
                 trding_open, trding_high, trding_low, trding_close, \
@@ -62,4 +61,4 @@ traders = get_all_traders()
 traders_ids = ids_of_traders(traders)
 
 print(traders_ids)
-# write_data_to_file(traders_ids, "data/data.txt")
+write_data_to_file(traders_ids, f"data/{traders_number}traders_1year.txt")
