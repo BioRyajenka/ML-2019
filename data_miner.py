@@ -37,7 +37,7 @@ for trader_id in traders_ids:
     time.sleep(0.1)
 
 
-with open('mini_data.txt', 'w') as f:
+with open('data/mini_data.txt', 'w') as f:
     print(", ".join(['TIME'] + [str(trader_id) for trader_id in traders_ids]), file=f)
     for dtime in sorted(time_data.keys()):
         print(", ".join(map(str, [dtime] + [time_data[dtime][trader_id] for trader_id in traders_ids])), file=f)
