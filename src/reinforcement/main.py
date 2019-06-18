@@ -3,7 +3,7 @@ from src.reinforcement.models import GreedyModel, WeightedMovingAverageModel, Re
 from src.reinforcement.verificator import verify
 from src.reinforcement.plotter import show_plot
 
-filepath = "data/1000traders_2years.txt"
+filepath = "data/10traders_1year.txt"
 
 if __name__ == "__main__":
     returns, times, n_traders = parse_data(filepath, max_traders=10)
@@ -12,4 +12,4 @@ if __name__ == "__main__":
 
     real_returns, real_accumulative_returns = verify(returns, model, 50)
 
-    show_plot(real_returns, real_accumulative_returns)
+    show_plot(real_returns, real_accumulative_returns, times[-len(real_returns):])
